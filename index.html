@@ -16,179 +16,24 @@
 
         body {
             font-family: 'Tajawal', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            background: #f0f0f0;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 20px;
+            padding: 30px 15px;
         }
 
-        /* ===== صفحة الإدخال ===== */
-        .input-page {
-            width: 100%;
-            max-width: 500px;
-        }
-
-        .input-card {
-            background: white;
-            border-radius: 24px;
-            padding: 40px 35px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
-            animation: fadeUp 0.6s ease;
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .input-card .header {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .input-card .logo-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 36px;
-            color: white;
-            box-shadow: 0 10px 30px rgba(102,126,234,0.4);
-        }
-
-        .input-card .header h1 {
-            font-family: 'Amiri', serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: #2d3436;
-            margin-bottom: 5px;
-        }
-
-        .input-card .header p {
-            color: #888;
-            font-size: 14px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 700;
-            font-size: 15px;
-            color: #2d3436;
-        }
-
-        .form-group label .star {
-            color: #e74c3c;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 18px;
-            border: 2px solid #e8e8f0;
-            border-radius: 12px;
-            font-family: 'Tajawal', sans-serif;
-            font-size: 16px;
-            transition: all 0.3s;
-            background: #fafaff;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(102,126,234,0.15);
-            background: white;
-        }
-
-        .form-group textarea {
-            height: 80px;
-            resize: vertical;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: #bbb;
-        }
-
-        .price-input-wrapper {
-            position: relative;
-        }
-
-        .price-input-wrapper input {
-            padding-left: 60px;
-        }
-
-        .currency-label {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-weight: 800;
-            color: #667eea;
-            font-size: 14px;
-            background: rgba(102,126,234,0.1);
-            padding: 4px 10px;
-            border-radius: 6px;
-        }
-
-        .generate-btn {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 14px;
-            font-family: 'Tajawal', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 8px 30px rgba(102,126,234,0.4);
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .generate-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(102,126,234,0.5);
-        }
-
-        .generate-btn:active {
-            transform: translateY(0);
-        }
-
-        /* ===== صفحة الوصل ===== */
-        .receipt-page {
-            display: none;
-            width: 100%;
-            max-width: 500px;
-        }
-
-        .receipt-actions {
+        /* ===== أزرار التحكم (تختفي عند الطباعة) ===== */
+        .controls {
             display: flex;
             gap: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .action-btn {
-            flex: 1;
-            min-width: 140px;
-            padding: 14px 20px;
+        .ctrl-btn {
+            padding: 14px 30px;
             border: none;
             border-radius: 14px;
             font-family: 'Tajawal', sans-serif;
@@ -198,351 +43,380 @@
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 8px;
         }
 
-        .print-btn {
+        .ctrl-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-print {
             background: linear-gradient(135deg, #00b894, #00cec9);
             color: white;
-            box-shadow: 0 8px 25px rgba(0,184,148,0.4);
+            box-shadow: 0 8px 25px rgba(0,184,148,0.35);
         }
 
-        .print-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(0,184,148,0.5);
+        .btn-copies {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 8px 25px rgba(102,126,234,0.35);
         }
 
-        .back-btn {
-            background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
-        }
-
-        .back-btn:hover {
-            background: #667eea;
+        .copies-input {
+            width: 60px;
+            padding: 5px;
+            border: 2px solid white;
+            border-radius: 8px;
+            text-align: center;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            background: rgba(255,255,255,0.2);
             color: white;
         }
 
-        /* ===== الوصل نفسه ===== */
-        .receipt-container {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
-            position: relative;
+        .copies-input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* ===== الوصل ===== */
+        .receipt-wrapper {
+            width: 100%;
+            max-width: 420px;
         }
 
         .receipt {
-            padding: 40px 35px;
+            background: white;
+            width: 100%;
+            padding: 35px 30px;
             position: relative;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 30px;
         }
 
-        /* العلامة المائية */
-        .watermark {
+        /* ===== العلامة المائية الشفافة (الختم) ===== */
+        .watermark-stamp {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) rotate(-35deg);
+            transform: translate(-50%, -50%) rotate(-25deg);
+            width: 280px;
+            height: 280px;
+            border: 4px solid rgba(102, 126, 234, 0.06);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .watermark-stamp::before {
+            content: '';
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border: 2px solid rgba(102, 126, 234, 0.04);
+            border-radius: 50%;
+        }
+
+        .watermark-stamp::after {
+            content: '';
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            border: 1px dashed rgba(102, 126, 234, 0.05);
+            border-radius: 50%;
+        }
+
+        .watermark-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-25deg);
             font-family: 'Amiri', serif;
-            font-size: 55px;
+            font-size: 28px;
             font-weight: 700;
-            color: rgba(102, 126, 234, 0.04);
+            color: rgba(102, 126, 234, 0.045);
             white-space: nowrap;
             pointer-events: none;
             z-index: 1;
-            user-select: none;
+            text-align: center;
+            line-height: 1.6;
         }
 
-        .receipt > * {
+        .watermark-sub {
+            font-size: 14px;
+            display: block;
+            letter-spacing: 8px;
+        }
+
+        /* ===== باقي العناصر فوق العلامة المائية ===== */
+        .receipt > *:not(.watermark-stamp):not(.watermark-text) {
             position: relative;
             z-index: 2;
         }
 
-        /* رأس الوصل */
+        /* ===== رأس الوصل ===== */
         .receipt-header {
             text-align: center;
-            padding-bottom: 25px;
-            border-bottom: 3px solid #f0f0f5;
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .receipt-header::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 3px;
-        }
-
-        .receipt-logo {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 12px;
-            font-size: 32px;
-            color: white;
-            box-shadow: 0 8px 25px rgba(102,126,234,0.3);
-        }
-
-        .receipt-header h1 {
-            font-family: 'Amiri', serif;
-            font-size: 26px;
-            font-weight: 700;
-            color: #2d3436;
-            margin-bottom: 4px;
-        }
-
-        .receipt-header .subtitle {
-            color: #888;
-            font-size: 13px;
-            margin-bottom: 10px;
-        }
-
-        .receipt-number {
-            display: inline-block;
-            background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
-            color: #667eea;
-            padding: 5px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        /* محتوى الوصل */
-        .receipt-body {
-            margin-bottom: 25px;
-        }
-
-        .info-block {
+            padding-bottom: 18px;
             margin-bottom: 20px;
+            border-bottom: 2px solid #222;
         }
 
-        .info-row {
-            display: flex;
-            align-items: flex-start;
-            padding: 14px 0;
-            border-bottom: 1px solid #f5f5fa;
+        .brand-name {
+            font-family: 'Amiri', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 2px;
+            letter-spacing: 1px;
         }
 
-        .info-row:last-child {
-            border-bottom: none;
+        .receipt-title {
+            font-size: 15px;
+            color: #555;
+            font-weight: 600;
+            margin-top: 5px;
+            letter-spacing: 2px;
         }
 
-        .info-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
+        .header-line {
             display: flex;
             align-items: center;
+            gap: 8px;
             justify-content: center;
-            font-size: 18px;
-            margin-left: 14px;
-            flex-shrink: 0;
+            margin-top: 8px;
         }
 
-        .info-row:nth-child(1) .info-icon {
-            background: rgba(102,126,234,0.1);
+        .header-line .line {
+            width: 50px;
+            height: 1px;
+            background: #999;
         }
 
-        .info-row:nth-child(2) .info-icon {
-            background: rgba(0,184,148,0.1);
-        }
-
-        .info-row:nth-child(3) .info-icon {
-            background: rgba(253,203,110,0.2);
-        }
-
-        .info-content {
-            flex: 1;
-        }
-
-        .info-label {
-            font-size: 12px;
-            color: #999;
-            font-weight: 600;
-            margin-bottom: 3px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .info-value {
-            font-size: 17px;
-            font-weight: 700;
-            color: #2d3436;
-            line-height: 1.5;
-        }
-
-        /* قسم السعر */
-        .price-section {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 16px;
-            padding: 25px;
-            text-align: center;
-            color: white;
-            margin-bottom: 25px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .price-section::before {
-            content: '';
-            position: absolute;
-            top: -30px;
-            right: -30px;
-            width: 100px;
-            height: 100px;
-            background: rgba(255,255,255,0.1);
+        .header-line .dot {
+            width: 5px;
+            height: 5px;
+            background: #667eea;
             border-radius: 50%;
         }
 
-        .price-section::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: -20px;
-            width: 70px;
-            height: 70px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 50%;
-        }
-
-        .price-label {
-            font-size: 14px;
-            opacity: 0.85;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .price-amount {
-            font-size: 42px;
-            font-weight: 900;
-            line-height: 1.2;
-            position: relative;
-            z-index: 1;
-        }
-
-        .price-currency {
-            font-size: 18px;
-            font-weight: 600;
-            opacity: 0.8;
-            margin-right: 5px;
-        }
-
-        /* قسم التاريخ */
-        .date-section {
+        /* ===== رقم الوصل والتاريخ ===== */
+        .meta-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
-            background: #f8f9fe;
-            border-radius: 12px;
             margin-bottom: 25px;
+            padding: 0 5px;
+        }
+
+        .meta-item {
             font-size: 13px;
+            color: #444;
+            font-weight: 600;
         }
 
-        .date-item {
-            text-align: center;
-        }
-
-        .date-item .d-label {
+        .meta-item .meta-label {
             color: #999;
             font-size: 11px;
-            font-weight: 600;
-            margin-bottom: 3px;
         }
 
-        .date-item .d-value {
-            color: #2d3436;
-            font-weight: 700;
-            font-size: 14px;
+        .meta-line {
+            flex: 1;
+            border-bottom: 1px dotted #bbb;
+            margin: 0 8px;
+            min-width: 60px;
+            height: 18px;
         }
 
-        .date-divider {
-            width: 1px;
-            height: 35px;
-            background: #ddd;
+        /* ===== حقول الكتابة ===== */
+        .fields {
+            margin-bottom: 15px;
         }
 
-        /* ذيل الوصل */
-        .receipt-footer {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 2px dashed #e8e8f0;
+        .field-row {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 22px;
+            gap: 8px;
         }
 
-        .receipt-footer .thanks {
-            font-family: 'Amiri', serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: #667eea;
-            margin-bottom: 8px;
+        .field-label {
+            font-size: 15px;
+            font-weight: 800;
+            color: #1a1a1a;
+            white-space: nowrap;
+            padding-bottom: 4px;
+            min-width: fit-content;
         }
 
-        .receipt-footer .footer-note {
-            color: #aaa;
-            font-size: 12px;
-            line-height: 1.8;
+        .field-line {
+            flex: 1;
+            border-bottom: 1.5px dotted #888;
+            min-height: 28px;
         }
 
-        .receipt-footer .brand-watermark {
-            margin-top: 15px;
-            font-family: 'Amiri', serif;
-            font-size: 14px;
-            color: rgba(102,126,234,0.3);
-            font-weight: 700;
+        /* حقل العنوان - سطرين */
+        .field-row-multi {
+            margin-bottom: 5px;
         }
 
-        /* تأثير الزوايا المقطوعة */
-        .receipt-container::before,
-        .receipt-container::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            bottom: 120px;
-            z-index: 10;
+        .field-row-multi .field-line {
+            min-height: 28px;
         }
 
-        .receipt-container::before {
-            right: -10px;
+        .extra-line {
+            border-bottom: 1.5px dotted #888;
+            min-height: 28px;
+            margin-bottom: 22px;
+            margin-right: 0;
         }
 
-        .receipt-container::after {
-            left: -10px;
-        }
-
-        /* خطوط زخرفية */
-        .decorative-line {
+        /* ===== قسم السعر ===== */
+        .price-field {
             display: flex;
             align-items: center;
-            gap: 10px;
+            margin: 25px 0;
+            padding: 18px 20px;
+            border: 2px solid #222;
+            border-radius: 12px;
+            background: #fafafa;
+        }
+
+        .price-label {
+            font-size: 17px;
+            font-weight: 900;
+            color: #1a1a1a;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+
+        .price-line {
+            flex: 1;
+            border-bottom: 2px dotted #555;
+            min-height: 30px;
+            margin: 0 10px;
+        }
+
+        .price-currency {
+            font-size: 15px;
+            font-weight: 800;
+            color: #667eea;
+            white-space: nowrap;
+        }
+
+        /* ===== فاصل ===== */
+        .separator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
             margin: 20px 0;
         }
 
-        .decorative-line .line {
+        .separator .sep-line {
             flex: 1;
             height: 1px;
-            background: linear-gradient(to left, transparent, #e0e0e0, transparent);
+            background: linear-gradient(to left, transparent, #ccc, transparent);
         }
 
-        .decorative-line .diamond {
-            width: 8px;
-            height: 8px;
+        .separator .sep-diamond {
+            width: 6px;
+            height: 6px;
             background: #667eea;
             transform: rotate(45deg);
-            opacity: 0.3;
+            opacity: 0.25;
+        }
+
+        /* ===== حقل الملاحظات ===== */
+        .notes-section {
+            margin-bottom: 20px;
+        }
+
+        .notes-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .notes-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .note-line {
+            border-bottom: 1px dotted #aaa;
+            min-height: 22px;
+        }
+
+        /* ===== توقيع ===== */
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 15px;
+        }
+
+        .sig-block {
+            text-align: center;
+            width: 45%;
+        }
+
+        .sig-label {
+            font-size: 12px;
+            color: #888;
+            font-weight: 600;
+            margin-bottom: 35px;
+        }
+
+        .sig-line {
+            border-bottom: 1.5px solid #999;
+        }
+
+        /* ===== ذيل الوصل ===== */
+        .receipt-footer {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 2px solid #222;
+        }
+
+        .footer-brand {
+            font-family: 'Amiri', serif;
+            font-size: 13px;
+            color: rgba(102, 126, 234, 0.35);
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .footer-thanks {
+            font-family: 'Amiri', serif;
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        /* ===== خط مقص ===== */
+        .cut-line {
+            border: none;
+            border-top: 2px dashed #bbb;
+            margin: 0;
+            position: relative;
+        }
+
+        .cut-line::before {
+            content: '✂';
+            position: absolute;
+            top: -12px;
+            left: 10px;
+            font-size: 16px;
+            color: #bbb;
+            background: #f0f0f0;
+            padding: 0 5px;
         }
 
         /* ===== تنسيق الطباعة ===== */
@@ -550,316 +424,228 @@
             body {
                 background: white !important;
                 padding: 0 !important;
-                display: block !important;
+                margin: 0 !important;
             }
 
-            .input-page,
-            .receipt-actions {
+            .controls {
                 display: none !important;
             }
 
-            .receipt-page {
-                display: block !important;
+            .receipt-wrapper {
                 max-width: 100% !important;
             }
 
-            .receipt-container {
+            .receipt {
+                border: none !important;
                 box-shadow: none !important;
-                border-radius: 0 !important;
-                max-width: 400px;
+                page-break-inside: avoid;
+                page-break-after: always;
                 margin: 0 auto;
+                max-width: 400px;
             }
 
-            .receipt-container::before,
-            .receipt-container::after {
+            .receipt:last-child {
+                page-break-after: auto;
+            }
+
+            .cut-line {
                 display: none;
             }
 
-            .watermark {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                color: rgba(102, 126, 234, 0.04) !important;
+            /* الحفاظ على الألوان */
+            .watermark-stamp,
+            .watermark-text,
+            .header-line .dot,
+            .separator .sep-diamond,
+            .price-currency,
+            .footer-brand {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
             }
 
-            .price-section {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            .watermark-stamp {
+                border-color: rgba(102, 126, 234, 0.06) !important;
             }
 
-            .receipt-logo {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            .watermark-text {
+                color: rgba(102, 126, 234, 0.045) !important;
             }
 
-            .info-icon {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .date-section {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            .price-field {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background: #fafafa !important;
             }
         }
 
-        /* Responsive */
         @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-
-            .input-card {
-                padding: 30px 20px;
-            }
-
             .receipt {
-                padding: 30px 20px;
+                padding: 25px 18px;
             }
 
-            .receipt-header h1 {
+            .brand-name {
+                font-size: 24px;
+            }
+
+            .watermark-stamp {
+                width: 220px;
+                height: 220px;
+            }
+
+            .watermark-text {
                 font-size: 22px;
-            }
-
-            .price-amount {
-                font-size: 34px;
-            }
-
-            .watermark {
-                font-size: 40px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== صفحة الإدخال ===== -->
-    <div class="input-page" id="inputPage">
-        <div class="input-card">
-            <div class="header">
-                <div class="logo-icon">📦</div>
-                <h1>منتجات أمين الساعدي</h1>
-                <p>إنشاء وصل طلب جديد</p>
-            </div>
-
-            <form id="receiptForm" onsubmit="return generateReceipt(event)">
-                <div class="form-group">
-                    <label>اسم الزبون <span class="star">*</span></label>
-                    <input type="text" id="custName" placeholder="أدخل اسم الزبون الكامل" required>
-                </div>
-
-                <div class="form-group">
-                    <label>عنوان الزبون <span class="star">*</span></label>
-                    <textarea id="custAddress" placeholder="أدخل العنوان بالتفصيل (المحافظة، المنطقة، أقرب نقطة دالة...)" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>السعر الكامل <span class="star">*</span></label>
-                    <div class="price-input-wrapper">
-                        <input type="number" id="custPrice" placeholder="أدخل المبلغ" step="250" required>
-                        <span class="currency-label">د.ع</span>
-                    </div>
-                </div>
-
-                <button type="submit" class="generate-btn">
-                    <span>📄</span>
-                    <span>إنشاء الوصل</span>
-                </button>
-            </form>
-        </div>
+    <!-- أزرار التحكم -->
+    <div class="controls">
+        <button class="ctrl-btn btn-print" onclick="window.print()">
+            🖨️ طباعة الوصل
+        </button>
+        <button class="ctrl-btn btn-copies" onclick="setCopies()">
+            📄 عدد النسخ:
+            <input type="number" class="copies-input" id="copiesCount" value="1" min="1" max="10" onclick="event.stopPropagation()">
+        </button>
     </div>
 
-    <!-- ===== صفحة الوصل ===== -->
-    <div class="receipt-page" id="receiptPage">
+    <!-- حاوية الوصول -->
+    <div class="receipt-wrapper" id="receiptWrapper">
 
-        <!-- أزرار الإجراءات -->
-        <div class="receipt-actions">
-            <button class="action-btn print-btn" onclick="printReceipt()">
-                <span>🖨️</span>
-                <span>طباعة الوصل</span>
-            </button>
-            <button class="action-btn back-btn" onclick="goBack()">
-                <span>↩️</span>
-                <span>وصل جديد</span>
-            </button>
-        </div>
+        <!-- وصل واحد (يتكرر حسب عدد النسخ) -->
+        <div class="receipt" id="receiptTemplate">
 
-        <!-- الوصل -->
-        <div class="receipt-container">
-            <div class="receipt" id="receiptContent">
+            <!-- العلامة المائية / الختم الشفاف -->
+            <div class="watermark-stamp"></div>
+            <div class="watermark-text">
+                منتجات أمين الساعدي
+                <span class="watermark-sub">AMIN AL-SAADI</span>
+            </div>
 
-                <!-- العلامة المائية -->
-                <div class="watermark">منتجات أمين الساعدي</div>
-
-                <!-- رأس الوصل -->
-                <div class="receipt-header">
-                    <div class="receipt-logo">📦</div>
-                    <h1>منتجات أمين الساعدي</h1>
-                    <div class="subtitle">وصل استلام طلب</div>
-                    <div class="receipt-number" id="receiptNumber">رقم الوصل: #0001</div>
-                </div>
-
-                <!-- خط زخرفي -->
-                <div class="decorative-line">
+            <!-- رأس الوصل -->
+            <div class="receipt-header">
+                <div class="brand-name">📦 منتجات أمين الساعدي</div>
+                <div class="receipt-title">— وصل استلام طلب —</div>
+                <div class="header-line">
                     <div class="line"></div>
-                    <div class="diamond"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
                     <div class="line"></div>
                 </div>
+            </div>
 
-                <!-- معلومات الطلب -->
-                <div class="receipt-body">
-                    <div class="info-block">
-                        <div class="info-row">
-                            <div class="info-icon">👤</div>
-                            <div class="info-content">
-                                <div class="info-label">اسم الزبون</div>
-                                <div class="info-value" id="displayName">---</div>
-                            </div>
-                        </div>
-                        <div class="info-row">
-                            <div class="info-icon">📍</div>
-                            <div class="info-content">
-                                <div class="info-label">عنوان الزبون</div>
-                                <div class="info-value" id="displayAddress">---</div>
-                            </div>
-                        </div>
-                        <div class="info-row">
-                            <div class="info-icon">💰</div>
-                            <div class="info-content">
-                                <div class="info-label">تفاصيل الدفع</div>
-                                <div class="info-value" style="color: #667eea;">الدفع عند الاستلام</div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- رقم الوصل والتاريخ -->
+            <div class="meta-row">
+                <div class="meta-item">
+                    <span class="meta-label">رقم الوصل:</span>
+                </div>
+                <div class="meta-line"></div>
+                <div class="meta-item">
+                    <span class="meta-label">التاريخ:</span>
+                </div>
+                <div class="meta-line"></div>
+            </div>
+
+            <!-- الحقول الفارغة -->
+            <div class="fields">
+
+                <!-- اسم الزبون -->
+                <div class="field-row">
+                    <div class="field-label">اسم الزبون :</div>
+                    <div class="field-line"></div>
                 </div>
 
-                <!-- قسم السعر -->
-                <div class="price-section">
-                    <div class="price-label">السعر الكامل</div>
-                    <div class="price-amount">
-                        <span id="displayPrice">0</span>
-                        <span class="price-currency">د.ع</span>
-                    </div>
+                <!-- عنوان الزبون -->
+                <div class="field-row field-row-multi">
+                    <div class="field-label">عنوان الزبون :</div>
+                    <div class="field-line"></div>
                 </div>
+                <div class="extra-line"></div>
 
-                <!-- التاريخ والوقت -->
-                <div class="date-section">
-                    <div class="date-item">
-                        <div class="d-label">📅 التاريخ</div>
-                        <div class="d-value" id="displayDate">---</div>
-                    </div>
-                    <div class="date-divider"></div>
-                    <div class="date-item">
-                        <div class="d-label">🕐 الوقت</div>
-                        <div class="d-value" id="displayTime">---</div>
-                    </div>
-                    <div class="date-divider"></div>
-                    <div class="date-item">
-                        <div class="d-label">📋 رقم الوصل</div>
-                        <div class="d-value" id="displayReceiptNum">---</div>
-                    </div>
-                </div>
-
-                <!-- خط زخرفي -->
-                <div class="decorative-line">
-                    <div class="line"></div>
-                    <div class="diamond"></div>
-                    <div class="line"></div>
-                </div>
-
-                <!-- ذيل الوصل -->
-                <div class="receipt-footer">
-                    <div class="thanks">شكراً لتعاملكم معنا 🤍</div>
-                    <div class="footer-note">
-                        يرجى الاحتفاظ بهذا الوصل حتى استلام الطلب
-                        <br>
-                        للاستفسار يرجى التواصل معنا
-                    </div>
-                    <div class="brand-watermark">— منتجات أمين الساعدي —</div>
+                <!-- رقم الهاتف -->
+                <div class="field-row">
+                    <div class="field-label">رقم الهاتف :</div>
+                    <div class="field-line"></div>
                 </div>
 
             </div>
+
+            <!-- فاصل -->
+            <div class="separator">
+                <div class="sep-line"></div>
+                <div class="sep-diamond"></div>
+                <div class="sep-line"></div>
+                <div class="sep-diamond"></div>
+                <div class="sep-line"></div>
+            </div>
+
+            <!-- السعر -->
+            <div class="price-field">
+                <div class="price-label">💰 السعر الكامل :</div>
+                <div class="price-line"></div>
+                <div class="price-currency">د.ع</div>
+            </div>
+
+            <!-- ملاحظات -->
+            <div class="notes-section">
+                <div class="notes-label">📝 ملاحظات :</div>
+                <div class="notes-lines">
+                    <div class="note-line"></div>
+                    <div class="note-line"></div>
+                </div>
+            </div>
+
+            <!-- توقيع -->
+            <div class="signature-section">
+                <div class="sig-block">
+                    <div class="sig-label">توقيع البائع</div>
+                    <div class="sig-line"></div>
+                </div>
+                <div class="sig-block">
+                    <div class="sig-label">توقيع المستلم</div>
+                    <div class="sig-line"></div>
+                </div>
+            </div>
+
+            <!-- ذيل الوصل -->
+            <div class="receipt-footer">
+                <div class="footer-thanks">شكراً لتعاملكم معنا ♥</div>
+                <div class="footer-brand">— منتجات أمين الساعدي —</div>
+            </div>
+
         </div>
+
     </div>
 
     <script>
-        // رقم الوصل التلقائي
-        let receiptCounter = parseInt(localStorage.getItem('receiptCounter')) || 0;
+        function setCopies() {
+            const count = parseInt(document.getElementById('copiesCount').value) || 1;
+            const wrapper = document.getElementById('receiptWrapper');
+            const template = document.getElementById('receiptTemplate');
 
-        function generateReceipt(e) {
-            e.preventDefault();
+            // مسح الوصول القديمة
+            wrapper.innerHTML = '';
 
-            const name = document.getElementById('custName').value.trim();
-            const address = document.getElementById('custAddress').value.trim();
-            const price = document.getElementById('custPrice').value;
+            for (let i = 0; i < count; i++) {
+                const clone = template.cloneNode(true);
+                clone.removeAttribute('id');
+                wrapper.appendChild(clone);
 
-            if (!name || !address || !price) {
-                alert('يرجى تعبئة جميع الحقول');
-                return false;
-            }
-
-            // زيادة رقم الوصل
-            receiptCounter++;
-            localStorage.setItem('receiptCounter', receiptCounter);
-
-            const receiptNum = String(receiptCounter).padStart(4, '0');
-
-            // التاريخ والوقت
-            const now = new Date();
-            const dateStr = now.toLocaleDateString('ar-IQ', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
-            const timeStr = now.toLocaleTimeString('ar-IQ', {
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-
-            // تنسيق السعر
-            const formattedPrice = parseInt(price).toLocaleString('ar-IQ');
-
-            // تعبئة الوصل
-            document.getElementById('displayName').textContent = name;
-            document.getElementById('displayAddress').textContent = address;
-            document.getElementById('displayPrice').textContent = formattedPrice;
-            document.getElementById('displayDate').textContent = dateStr;
-            document.getElementById('displayTime').textContent = timeStr;
-            document.getElementById('receiptNumber').textContent = 'رقم الوصل: #' + receiptNum;
-            document.getElementById('displayReceiptNum').textContent = '#' + receiptNum;
-
-            // عرض صفحة الوصل
-            document.getElementById('inputPage').style.display = 'none';
-            document.getElementById('receiptPage').style.display = 'block';
-
-            return false;
-        }
-
-        function printReceipt() {
-            window.print();
-        }
-
-        function goBack() {
-            document.getElementById('receiptPage').style.display = 'none';
-            document.getElementById('inputPage').style.display = 'block';
-            document.getElementById('receiptForm').reset();
-        }
-
-        // Enter key support
-        document.querySelectorAll('#receiptForm input').forEach(input => {
-            input.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    const form = document.getElementById('receiptForm');
-                    const inputs = Array.from(form.querySelectorAll('input, textarea'));
-                    const currentIndex = inputs.indexOf(this);
-                    if (currentIndex < inputs.length - 1) {
-                        inputs[currentIndex + 1].focus();
-                    } else {
-                        generateReceipt(e);
-                    }
+                // خط القص بين النسخ
+                if (i < count - 1) {
+                    const cutLine = document.createElement('hr');
+                    cutLine.className = 'cut-line';
+                    wrapper.appendChild(cutLine);
                 }
-            });
-        });
+            }
+        }
+
+        // تهيئة النسخة الأولى
+        document.getElementById('copiesCount').addEventListener('change', setCopies);
     </script>
 
 </body>
