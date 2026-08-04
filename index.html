@@ -329,13 +329,15 @@
         @media print {
             @page {
                 size: A5;
-                margin: 10mm;
+                margin: 6mm;
             }
 
-            body {
+            html, body {
                 background: white !important;
                 padding: 0 !important;
                 margin: 0 !important;
+                width: 100%;
+                height: auto;
             }
 
             .controls {
@@ -344,15 +346,19 @@
 
             .receipt-wrapper {
                 max-width: 100% !important;
+                width: 100% !important;
             }
 
             .receipt {
-                border: 2px solid #222 !important;
+                border: 2.5px solid #000 !important;
                 box-shadow: none !important;
                 page-break-inside: avoid;
                 page-break-after: always;
-                margin: 0 auto 20px auto;
-                max-width: 500px;
+                margin: 0 auto !important;
+                width: 100%;
+                max-width: 100%;
+                min-height: 0;
+                height: calc(100vh - 12mm);
             }
 
             .receipt:last-child {
